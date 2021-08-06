@@ -1,6 +1,6 @@
 {
-  "vendor": "kri3ger",
-  "name": "basicblocks",
+  "vendor": "hiringcoders2021",
+  "name": "kri3ger",
   "version": "0.0.1",
   "builders": {
     "styles": "2.x",
