@@ -12,6 +12,9 @@
 - vtex login
 - vtex whoami
 - vtex use
+- vtex browse
+- vtex link
+- vtex unlink nomevendor.nomeworkspace@versão
 
 ## Boiler template theme
 
