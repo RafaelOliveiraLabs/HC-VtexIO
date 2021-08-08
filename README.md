@@ -2,9 +2,12 @@
 
 **_ EM ANDAMENTO _**
 
-## Projetos
+## Projetos / Themes used
 
-- VTEX Store Framework
+- boiler-template-theme
+- store-theme
+- store-block-template
+- personalized theme
 
 ## Commands
 
