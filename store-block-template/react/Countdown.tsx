@@ -2,20 +2,18 @@ import React, {useState} from 'react'
 import {TimeSplit} from './typings/global'
 import { tick, getTwoDaysFromNow } from './utils/time'
 import { useCssHandles } from 'vtex.css-handles'
-import { FormattedMessage } from 'react-intl'
+
+import { useQuery } from 'react-apollo'
+import { useProduct } from 'vtex.product-context'
+import productReleaseDate from './graphql/productReleaseDate.graphql'
 
 const DEFAULT_TARGET_DATE = getTwoDaysFromNow()
 
-interface CountdownProps {
-  title: string;
-  targetDate: string;
-}
+interface CountdownProps {}
 
-const CSS_HANDLES = ['container', 'countdown', 'title']
+const CSS_HANDLES = ['countdown']
 
-const Countdown: StorefrontFunctionComponent<CountdownProps> = ({title, targetDate}) => {
-  
-  targetDate = DEFAULT_TARGET_DATE
+const Countdown: StorefrontFunctionComponent<CountdownProps> = ({}) => {
 
   const [timeRemaining, setTime] = useState<TimeSplit>({
          hours: '00',
@@ -25,17 +23,46 @@ const Countdown: StorefrontFunctionComponent<CountdownProps> = ({title, targetDa
 
   const handles = useCssHandles(CSS_HANDLES)
 
-  const titleText = title || <FormattedMessage id="countdown.title" />
+  const { product } = useProduct();
 
-  tick(targetDate, setTime)
+    const { data, loading, error } = useQuery(productReleaseDate, {
+      variables: {
+        slug: product?.linkText
+      },
+      ssr: false
+  })
+
+  if (!product) {
+    return (
+      <div>
+        <span>There is no product context.</span>
+      </div>
+    )
+  }
+
+  if (loading) {
+    return (
+      <div>
+        <span>Loading...</span>
+      </div>
+    )
+  }
+  if (error) {
+    return (
+      <div>
+        <span>Erro!</span>
+      </div>
+    )
+  }
+
+  tick(data?.product?.releaseDate || DEFAULT_TARGET_DATE, setTime)
 
   return (
-    <div className={`${handles.container} t-heading-2 fw3 w-100 c-muted-1`}>
-      <div className={`${handles.title} db tc`}>{titleText}</div>
+
       <div className={`${handles.countdown} db tc`}>
         {`${timeRemaining.hours}:${timeRemaining.minutes}:${timeRemaining.seconds}`}
       </div>
-    </div>
+
   )
 }
 
@@ -43,20 +70,7 @@ Countdown.schema = {
   title: 'editor.countdown.title',
   description: 'editor.countdown.description',
   type: 'object',
-  properties: {
-    title: {
-           title: 'Sou um título',
-           type: 'string',
-           default: null,
-         },
-
-    targetDate: {
-          title: 'Data final',
-          description: 'Data final utilizada no contador',
-          type: 'string',
-          default: null,
-       },
-  },
+  properties: {},
 }
 
 export default Countdown
