@@ -12,14 +12,18 @@
 ## Commands
 
 - yarn global add vtex
-- vtex login
+- vtex login <workflow>
 - vtex whoami
-- vtex use
+- vtex use <workflow>
 - vtex use <workflow> --production
 - vtex browse
 - vtex link
 - vtex unlink nomevendor.nomeworkspace@versão
-- vtex switch
+- vtex switch <workflow>
+- vtex publish
+- vtex deploy
+- vtex install
+- vtex install {vendor}.{appName}@{version}
 
 ## Boiler template theme
 
