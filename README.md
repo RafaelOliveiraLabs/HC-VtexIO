@@ -15,9 +15,11 @@
 - vtex login
 - vtex whoami
 - vtex use
+- vtex use <workflow> --production
 - vtex browse
 - vtex link
 - vtex unlink nomevendor.nomeworkspace@versão
+- vtex switch
 
 ## Boiler template theme
 
