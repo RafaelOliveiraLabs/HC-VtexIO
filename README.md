@@ -5,6 +5,7 @@
 ## Projetos / Themes used
 
 - boiler-template-theme
+- demostore-theme
 - store-theme
 - store-block-template
 - personalized theme
