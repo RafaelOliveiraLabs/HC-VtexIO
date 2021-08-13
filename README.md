@@ -6,9 +6,10 @@
 
 - boiler-template-theme
 - demostore-theme
-- store-theme
-- store-block-template
 - personalized theme
+- service-example
+- store-block-template
+- store-theme
 
 ## Commands
 
