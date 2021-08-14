@@ -7,6 +7,7 @@
 - boiler-template-theme
 - demostore-theme
 - personalized theme
+- react-app-template
 - service-example
 - store-block-template
 - store-theme
