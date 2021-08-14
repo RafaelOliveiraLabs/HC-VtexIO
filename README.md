@@ -27,7 +27,3 @@
 - vtex deploy
 - vtex install
 - vtex install {vendor}.{appName}@{version}
-
-## Boiler template theme
-
-- [Boiler Template](https://github.com/vtex-apps/minimum-boilerplate-theme)
