@@ -1,6 +1,6 @@
 {
   "vendor": "hiringcoders2021",
-  "name": "kri3ger",
+  "name": "kri3ger-boiler-template-theme",
   "version": "0.0.1",
   "builders": {
     "styles": "2.x",
